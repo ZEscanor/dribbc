@@ -5,7 +5,7 @@ import { NavLinks } from '@/constants'
 import AuthProvider from './AuthProvider'
 
 const Navbar = () => {
-  const session = {}
+  const session = null
   return (
     <nav  className='
     flexBetween
