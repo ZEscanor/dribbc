@@ -7,6 +7,8 @@ import FormField from "./FormField"
 import { categoryFilters } from "@/constants"
 import CustomMenu from "./CustomMenu"
 import Button from "./Button"
+import { createNewProject, fetchToken } from "@/lib/actions"
+import { useRouter } from "next/navigation"
 
 type Props = {
   type: string,
@@ -14,6 +16,8 @@ type Props = {
 }
 
 const ProjectForm = ({type, session} : Props) => {
+
+  const router = useRouter();
 
 const [loading, setLoading] = useState(false);
 
@@ -26,7 +30,27 @@ const [form, setForm] = useState({
   category: '',
 });
   
-  const handleFormSubmit = (e:React.FormEvent) => {};
+  const handleFormSubmit = async (e:React.FormEvent) => {
+    e.preventDefault();
+
+    setLoading(true);
+    const {token} = await fetchToken();
+    try{
+      if(type === 'create'){
+        await createNewProject(form,session?.user?.id, token);
+
+        router.push('/');
+
+
+
+      }
+    }catch(err){
+      console.log(err);
+    }
+    finally{
+      setLoading(false);
+    }
+  };
 
 
   const handleChangeImage = (e:ChangeEvent<HTMLInputElement>) => {
@@ -115,7 +139,9 @@ const [form, setForm] = useState({
      
       <div className="flexStart w-full">
        <Button
-       title= "create"
+       title= {loading ? 
+        `${type === 'create' ? "Creating": 'Editing'}` : 
+        `${type === 'create'? 'Create': 'Edit'}`}
        type="submit"
        leftIcon = {loading ? "" : '/plus.svg'}
        loading = {loading}
