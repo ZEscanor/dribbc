@@ -56,8 +56,8 @@ export const authOptions: NextAuthOptions = {
                 };
                 return newSession;
             }
-            catch(e){
-                console.log('error', e);
+            catch(error: any){
+                console.log('error', error);
                 return session;
             }
             
@@ -74,8 +74,8 @@ export const authOptions: NextAuthOptions = {
             }
             return true;
            }
-              catch (e) {
-                    console.log(e);
+              catch (e:any) {
+                    console.log(e.message);
                    return false;
                 }   
         }

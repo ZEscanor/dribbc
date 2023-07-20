@@ -1,3 +1,19 @@
+export const getUserQuery = `
+  query GetUser($email: String!) {
+    user(by: { email: $email }) {
+      id
+      name
+      email
+      avatarUrl
+      description
+      githubUrl
+      linkedinUrl
+    }
+  }
+`;
+
+
+
 export const createProjectMutation = `
 	mutation CreateProject($input: ProjectCreateInput!) {
 		projectCreate(input: $input) {
@@ -5,10 +21,7 @@ export const createProjectMutation = `
 				id
 				title
 				description
-				createdBy {
-					email
-					name
-				}
+        createdBy 
 			}
 		}
 	}
@@ -21,10 +34,7 @@ export const updateProjectMutation = `
 				id
 				title
 				description
-				createdBy {
-					email
-					name
-				}
+				createdBy 
 			}
 		}
 	}
@@ -55,8 +65,8 @@ export const createUserMutation = `
 `;
 
 export const projectsQuery = `
-  query getProjects($category: String, $endCursor: String) {
-    projectSearch(first: 8, after: $endCursor, filter: {category: {eq: $category}}) {
+  query getProjects($category: String, $endcursor: String) {
+    projectSearch(first: 8, after: $endcursor, filter: {category: {eq: $category}}) {
       pageInfo {
         hasNextPage
         hasPreviousPage
@@ -72,12 +82,9 @@ export const projectsQuery = `
           id
           image
           category
-          createdBy {
-            id
-            email
-            name
-            avatarUrl
-          }
+          createdBy 
+            
+          
         }
       }
     }
@@ -94,29 +101,12 @@ export const getProjectByIdQuery = `
       liveSiteUrl
       githubUrl
       category
-      createdBy {
-        id
-        name
-        email
-        avatarUrl
-      }
+      createdBy 
     }
   }
 `;
 
-export const getUserQuery = `
-  query GetUser($email: String!) {
-    user(by: { email: $email }) {
-      id
-      name
-      email
-      avatarUrl
-      description
-      githubUrl
-      linkedInUrl
-    }
-  }
-`;
+
       
 export const getProjectsOfUserQuery = `
   query getUserProjects($id: ID!, $last: Int = 4) {
@@ -127,7 +117,7 @@ export const getProjectsOfUserQuery = `
       description
       avatarUrl
       githubUrl
-      linkedInUrl
+      linkedinUrl
       projects(last: $last) {
         edges {
           node {

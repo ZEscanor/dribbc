@@ -19,7 +19,7 @@ const ProjectForm = ({type, session} : Props) => {
 
   const router = useRouter();
 
-const [loading, setLoading] = useState(false);
+const [loading, setLoading] = useState<boolean>(false);
 
 const [form, setForm] = useState({
   title: '',
@@ -37,15 +37,16 @@ const [form, setForm] = useState({
     const {token} = await fetchToken();
     try{
       if(type === 'create'){
-        await createNewProject(form,session?.user?.id, token);
+         //console.log(form,session?.user, token)
+        await createNewProject(form,session?.user?.name, token);
 
-        router.push('/');
+        //router.push('/');
 
 
 
       }
     }catch(err){
-      console.log(err);
+      alert(err)
     }
     finally{
       setLoading(false);
@@ -97,7 +98,7 @@ const [form, setForm] = useState({
           accept="image/*"
           required = {type === 'create' ? true : false}
           className="form_image-input"
-          onChange={handleChangeImage}
+          onChange={(e) => handleChangeImage(e)}
           />
           {form.image && <Image 
           src={form?.image} 

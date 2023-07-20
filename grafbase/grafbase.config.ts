@@ -1,15 +1,15 @@
 import { g, auth, config } from '@grafbase/sdk'
-import { rule } from 'postcss'
+
 
 
 // @ts-ignore
 const User = g.model('User', {
-  name: g.string().length({min: 3, max: 20}),
+  name: g.string().length({min: 1, max: 20}),
   email: g.string().unique(),
   avatarUrl: g.url(),
   description: g.string(),
   githubUrl: g.url().optional(),
-  linkedInUrl: g.url().optional(),
+  linkedinUrl: g.url().optional(),
   projects: g.relation(() =>Project).list().optional(),
 }).auth((rules) => {
   rules.public().read()
@@ -23,7 +23,7 @@ const Project = g.model('Project', {
   liveSiteUrl: g.url(),
   githubUrl: g.url(),
   category: g.string().search(),
-  createdBy: g.relation(()=> User),
+  createdBy: g.string(),
 
 }).auth((rules) => {
   rules.public().read(),
