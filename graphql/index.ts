@@ -21,7 +21,10 @@ export const createProjectMutation = `
 				id
 				title
 				description
-        createdBy 
+        createdBy
+        creatorImage
+        creatorEmail
+
 			}
 		}
 	}
@@ -35,6 +38,8 @@ export const updateProjectMutation = `
 				title
 				description
 				createdBy 
+        creatorImage
+        creatorEmail
 			}
 		}
 	}
@@ -82,7 +87,9 @@ export const projectsQuery = `
           id
           image
           category
-          createdBy 
+          createdBy
+          creatorImage
+          creatorEmail 
             
           
         }
@@ -102,6 +109,8 @@ export const getProjectByIdQuery = `
       githubUrl
       category
       createdBy 
+      creatorImage
+      creatorEmail
     }
   }
 `;
@@ -109,8 +118,8 @@ export const getProjectByIdQuery = `
 
       
 export const getProjectsOfUserQuery = `
-  query getUserProjects($id: ID!, $last: Int = 4) {
-    user(by: { id: $id }) {
+  query getUserProjects($email: String!, $last: Int = 4) {
+    user(by: { email: $email }) {
       id
       name
       email

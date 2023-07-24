@@ -1,6 +1,6 @@
 "use client"
 
-import { SessionInterface } from "@/common.types"
+import { ProjectInterface, SessionInterface } from "@/common.types"
 import Image from "next/image"
 import { ChangeEvent, useState } from "react"
 import FormField from "./FormField"
@@ -13,21 +13,24 @@ import { useRouter } from "next/navigation"
 type Props = {
   type: string,
   session: SessionInterface,
+  project?: ProjectInterface
 }
 
-const ProjectForm = ({type, session} : Props) => {
+const ProjectForm = ({type, session, project} : Props) => {
 
   const router = useRouter();
+
+  //console.log(session?.user.avatarUrl)
 
 const [loading, setLoading] = useState<boolean>(false);
 
 const [form, setForm] = useState({
-  title: '',
-  description: '',
-  liveSiteUrl: '',
-  githubUrl: '',
-  image: '',
-  category: '',
+  title:project?.title || '',
+  description:project?.description || '',
+  liveSiteUrl:project?.liveSiteUrl || '',
+  githubUrl:project?.githubUrl ||  '',
+  image:project?.image || '',
+  category:project?.category || '',
 });
   
   const handleFormSubmit = async (e:React.FormEvent) => {
@@ -38,9 +41,13 @@ const [form, setForm] = useState({
     try{
       if(type === 'create'){
          //console.log(form,session?.user, token)
-        await createNewProject(form,session?.user?.name, token);
+        await createNewProject(form,
+          session?.user?.name,
+          session?.user?.image,
+          session?.user?.email, 
+          token);
 
-        //router.push('/');
+        router.push('/');
 
 
 

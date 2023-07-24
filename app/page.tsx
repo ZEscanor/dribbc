@@ -22,20 +22,20 @@ const Home = async () => {
 
     const projectsToDisplay = data?.projectSearch?.edges || [];
 
-    
+   // console.log(projectsToDisplay[0].node.id)
 
-    // if(projectsToDisplay.length === 0){
+    if(projectsToDisplay.length === 0){
         
-    //     return (
-    //         <section className="flexStart flex-col paddings">
-    //             Categories
-    //             <p className="no-result-text text-center">
-    //                 No projects found, Create THEM
+        return (
+            <section className="flexStart flex-col paddings">
+                Categories
+                <p className="no-result-text text-center">
+                    No projects found, Create THEM
 
-    //             </p>
-    //         </section>
-    //     )
-    // }
+                </p>
+            </section>
+        )
+    }
 
 
     return (
@@ -44,16 +44,25 @@ const Home = async () => {
         paddings mb-16
         ">
           <h1>Categories </h1> 
-         {/* <section className="projects-grid" >
+         <section className="projects-grid" >
             {
                 projectsToDisplay.map(({ node}: {node: ProjectInterface}) => (
-                  <ProjectCard/>
+                  <ProjectCard
+                  key={node?.id}
+                  id={node?.id}
+                  image={node?.image}
+                  title={node?.title}
+                  createdBy={node?.createdBy}
+                creatorImage={node?.creatorImage}
+                creatorEmail={node?.creatorEmail}
+
+                  />
                 )
 
                  )
             }
 
-         </section> */}
+         </section>
          <h1> Load More</h1>
         </section>
     )

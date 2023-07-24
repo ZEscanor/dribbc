@@ -24,6 +24,11 @@ const Project = g.model('Project', {
   githubUrl: g.url(),
   category: g.string().search(),
   createdBy: g.string(),
+  creatorImage: g.string(),
+  creatorEmail: g.string(),
+  
+  
+  
 
 }).auth((rules) => {
   rules.public().read(),

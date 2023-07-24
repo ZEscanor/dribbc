@@ -1,5 +1,5 @@
 import { ProjectForm } from "@/common.types";
-import { createProjectMutation, createUserMutation, getUserQuery, projectsQuery } from "@/graphql";
+import { createProjectMutation, createUserMutation, deleteProjectMutation, getProjectByIdQuery, getProjectsOfUserQuery, getUserQuery, projectsQuery } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -90,7 +90,10 @@ export const fetchAllProjects = async (category? : string , endcursor? : string 
 }
 
 export const createNewProject = async (form: ProjectForm,
-    creatorId: string, token: string
+    creatorId: string,
+    creatorImage: string,
+    creatorEmail: string,
+     token: string
     ) => {
     const imageUrl = await uploadImage(form.image)
     
@@ -103,7 +106,10 @@ export const createNewProject = async (form: ProjectForm,
             input: {
                 ...form,
                 image: imageUrl.url,
-                createdBy: creatorId  
+               createdBy: creatorId,
+               creatorImage: creatorImage,
+               creatorEmail: creatorEmail
+               
             }
         };
         return makeGraphQLRequest(createProjectMutation, variables)
@@ -113,5 +119,30 @@ export const createNewProject = async (form: ProjectForm,
     };
 
 
+    export const getProjectDetails = (id: string) => {
+       client.setHeader("x-api-key", apiKey);
+         return makeGraphQLRequest(getProjectByIdQuery, {id}) 
+
+    }
+
+    // export const getUserProjects = (email: string, last?: number) => {
+    //     client.setHeader("x-api-key", apiKey);
+    //     console.log(email, "wfafapfnsoaf");
+    //     console.log(last, "wfafapfnsoaf")
+    //     makeGraphQLRequest(getProjectsOfUserQuery, {email, last}).then((data) => 
+        
+        
+    //     ).catch((error) => console.log(error, "error")
+    //     )
+        
+    //     //return makeGraphQLRequest(getProjectsOfUserQuery, {email, last})
+    //    return {user: null}
+    // }
+
+
+    export const deleteProject = (id: string, token: string) => {
+        client.setHeader("Authorization", `Bearer ${token}`)
+        return makeGraphQLRequest(deleteProjectMutation, {id})
+    }
   
 
