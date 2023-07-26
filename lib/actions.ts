@@ -74,7 +74,7 @@ export const createUser = (name:string, email:string, avatarUrl:string) => {
 
 
 
-export const fetchAllProjects = async (category? : string , endcursor? : string ) => {
+export const fetchAllProjects = async (category: string = "" , endcursor? : string ) => {
     client.setHeader("x-api-key", apiKey);
 
     return makeGraphQLRequest(projectsQuery, {
