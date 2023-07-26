@@ -34,13 +34,19 @@ export const revalidate = 0;
 
 const Home = async ({searchParams: {category, endcursor}}: Props) => {
 
+    if(category === null){
+        category = '';
+    }
+
    const data = await fetchAllProjects(category, endcursor) as ProjectSearch;
 
     const projectsToDisplay = data?.projectSearch?.edges || [];
 
    // console.log(projectsToDisplay[0].node.id)
 
+   
     if(projectsToDisplay?.length === 0 || data === null){
+
         
         return (
             <section className="flexStart flex-col paddings">
