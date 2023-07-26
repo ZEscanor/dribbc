@@ -40,7 +40,7 @@ const Home = async ({searchParams: {category, endcursor}}: Props) => {
 
    // console.log(projectsToDisplay[0].node.id)
 
-    if(projectsToDisplay.length === 0){
+    if(projectsToDisplay.length === 0 || data === null){
         
         return (
             <section className="flexStart flex-col paddings">
