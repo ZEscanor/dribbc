@@ -11,7 +11,7 @@ type Props = {
     creatorEmail: string,
     relatedProjects: {node: ProjectInterface}[]
 }
-
+//ProfilePage is a component that displays the profile of a user
 const ProfilePage = ({ 
     creatorName,
     creatorImage,
