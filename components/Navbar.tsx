@@ -21,8 +21,6 @@ const Navbar = async () => {
         '>
             <Link href='/'>
             <Image src='/logo.svg' width={115} height={43} alt='Flex' />
-            <h1>Categories</h1>
-            <h1>Posts</h1>
             </Link>
             <ul  className='
             xl:flex hidden

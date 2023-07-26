@@ -54,6 +54,7 @@ export const authOptions: NextAuthOptions = {
                         ...data.user
                     },
                 };
+                
                 return newSession;
             }
             catch(error: any){

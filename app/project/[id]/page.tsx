@@ -22,7 +22,7 @@ const  Project = async ({params: { id }} : { params: { id: string } }
     }
     const projectDetails = result?.project;
     const renderLink = () => `/profile/${projectDetails?.createdBy}`
-    console.log(projectDetails.createdBy, 'projectDetails')
+    //console.log(projectDetails.createdBy, 'projectDetails')
     // this is a modal component , a modal is a popup that appears on top of the page
   return (
     <Modal>
