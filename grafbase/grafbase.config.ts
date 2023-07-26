@@ -22,7 +22,7 @@ const Project = g.model('Project', {
   image: g.url(),
   liveSiteUrl: g.url(),
   githubUrl: g.url(),
-  category: g.string().search(),
+  category: g.string().optional().search(),
   createdBy: g.string(),
   creatorImage: g.string(),
   creatorEmail: g.string(),

@@ -15,7 +15,7 @@ export interface ProjectInterface {
     image: string;
     liveSiteUrl: string;
     githubUrl: string;
-    category: string;
+    category?: string;
     id: string;
     createdBy: string;
     creatorImage: string;
@@ -57,5 +57,5 @@ export interface ProjectForm {
   image: string;
   liveSiteUrl: string;
   githubUrl: string;
-  category: string;
+  category?: string;
 }
