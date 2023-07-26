@@ -30,7 +30,7 @@ const [form, setForm] = useState({
   liveSiteUrl:project?.liveSiteUrl || '',
   githubUrl:project?.githubUrl ||  '',
   image:project?.image || '',
-  category:project?.category || '',
+  category: project?.category || '',
 });
   
   const handleFormSubmit = async (e:React.FormEvent) => {
@@ -163,7 +163,7 @@ const [form, setForm] = useState({
 
       <CustomMenu 
       title = "Category"
-      state = {form.category}
+      state = {form?.category}
       filters = {categoryFilters}
       setState = {(value) => handleStateChange('category', value)}
       
