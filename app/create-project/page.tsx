@@ -1,19 +1,15 @@
 import { getCurrentUser } from "@/lib/session"
-import Modal from "../components/Modal"
-import ProjectForm from "../components/ProjectForm"
+import Modal from "../../components/Modal"
+import ProjectForm from "../../components/ProjectForm"
+import {redirect} from "next/navigation";
 
 
 
 const CreateProject = async () => {
     const session = await getCurrentUser();
+    // console.log(session,'weop')
 
-    if (!session?.user) {
-        return {
-            redirect: {
-             'destination': '/'
-            },
-        }
-    };
+    if (!session?.user) redirect('/');
   return (
     <Modal>
         <h3>

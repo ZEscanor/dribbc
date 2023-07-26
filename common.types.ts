@@ -17,16 +17,13 @@ export interface ProjectInterface {
     githubUrl: string;
     category: string;
     id: string;
-    createdBy: {
-      name: string;
-      email: string;
-      avatarUrl: string;
-      id: string;
-    };
+    createdBy: string;
+    creatorImage: string;
+    creatorEmail: string;
 }
 
 export interface UserProfile {
-    id: string;
+    id?: string;
     name: string;
     email: string;
     description: string | null;
@@ -50,6 +47,7 @@ export interface SessionInterface extends Session {
     name: string;
     email: string;
     avatarUrl: string;
+    image: string;
   };
 }
 
