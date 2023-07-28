@@ -83,6 +83,12 @@ export const fetchAllProjects = async (category: string | null = "All" , endcurs
         })
     }
 
+    else if (category == null){
+        return makeGraphQLRequest(projectsQuery, {
+            endcursor
+        })
+    }
+
     return makeGraphQLRequest(projectsQuery, {
         category,
         endcursor
