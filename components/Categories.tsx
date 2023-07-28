@@ -10,7 +10,7 @@ const router = useRouter();
 const pathname = usePathname();
 const searchParams = useSearchParams();
 
-const category = searchParams.get('category') || 'all';
+const category = searchParams.get('category') || 'All';
 
 const handleTags = (filter:string) => {
     router.push(`${pathname}?category=${filter}`)
