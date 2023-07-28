@@ -32,9 +32,10 @@ const Home = async ({searchParams: {category, endcursor}}: Props) => {
 
   
         let data = await fetchAllProjects() as ProjectSearch;
+
        
     
-    if(category !== null){
+    if(category !== null || category !== undefined){
         if (category === 'All') {
         
             data = await fetchAllProjects() as ProjectSearch;
@@ -43,7 +44,7 @@ const Home = async ({searchParams: {category, endcursor}}: Props) => {
         else {
             //console.log(category)
     data = await fetchAllProjects(category, endcursor) as ProjectSearch;
-    console.log(data?.projectSearch?.edges[0],'data')
+   // console.log(data?.projectSearch?.edges[0],'data')
     }
     }
     const projectsToDisplay = data?.projectSearch?.edges || [];

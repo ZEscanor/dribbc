@@ -74,7 +74,7 @@ export const createUser = (name:string, email:string, avatarUrl:string) => {
 
 
 
-export const fetchAllProjects = async (category: string = "All" , endcursor? : string ) => {
+export const fetchAllProjects = async (category: string | null = "All" , endcursor? : string ) => {
     client.setHeader("x-api-key", apiKey);
 
     if(category === "All"){
