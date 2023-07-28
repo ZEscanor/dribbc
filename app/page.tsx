@@ -28,23 +28,27 @@ type Props = {
     searchParams: SearchParams
 }
 
-export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
-export const revalidate = 0;
-
 const Home = async ({searchParams: {category, endcursor}}: Props) => {
 
   
         let data = await fetchAllProjects() as ProjectSearch;
-        
+       
     
     if(category !== null){
+        if (category === 'All') {
+        
+            data = await fetchAllProjects() as ProjectSearch;
+           
+        } 
+        else {
+            //console.log(category)
     data = await fetchAllProjects(category, endcursor) as ProjectSearch;
+    console.log(data?.projectSearch?.edges[0],'data')
     }
-
+    }
     const projectsToDisplay = data?.projectSearch?.edges || [];
 
-   // console.log(projectsToDisplay[0].node.id)
+   // console.log(projectsToDisplay[0],"78")
 
    
     if(projectsToDisplay?.length === 0 || data === null){
@@ -71,7 +75,9 @@ const Home = async ({searchParams: {category, endcursor}}: Props) => {
           <Categories/> 
          <section className="projects-grid" >
             {
+                
                 projectsToDisplay.map(({ node}: {node: ProjectInterface}) => (
+                    
                   <ProjectCard
                   key={node?.id}
                   id={node?.id}
@@ -80,6 +86,7 @@ const Home = async ({searchParams: {category, endcursor}}: Props) => {
                   createdBy={node?.createdBy}
                 creatorImage={node?.creatorImage}
                 creatorEmail={node?.creatorEmail}
+                creator={node?.creator?.id}
 
                   />
                 )

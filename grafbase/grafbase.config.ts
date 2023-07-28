@@ -13,6 +13,7 @@ const User = g.model('User', {
   projects: g.relation(() =>Project).list().optional(),
 }).auth((rules) => {
   rules.public().read()
+  rules.private().update().delete()
 })
 
 // @ts-ignore
@@ -26,6 +27,7 @@ const Project = g.model('Project', {
   createdBy: g.string(),
   creatorImage: g.string(),
   creatorEmail: g.string(),
+  creator : g.relation(() => User).optional(),
   
   
   

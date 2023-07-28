@@ -1,5 +1,5 @@
 import { ProjectInterface, UserProfile } from "@/common.types";
-import { fetchAllProjects } from "@/lib/actions";
+import { fetchAllProjects, getProjectsOfUser } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,6 +19,12 @@ const result = await fetchAllProjects() as {
         edges: {node: ProjectInterface}[];
     }
 }
+
+//console.log(userId, 'userIdjjjjjjjj')
+// const newResult = await getProjectsOfUser(userId, 4) as {
+//     user?: UserProfile}
+
+//     console.log(newResult, 'newResult')
 
  //console.log(result.projectSearch.edges, 'result')
  //const filteredProjects = result?.user?.projects?.edges.filter(({node}: {node: ProjectInterface} ) => node?.id !== projectId);

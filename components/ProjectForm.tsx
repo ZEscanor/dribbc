@@ -20,7 +20,7 @@ const ProjectForm = ({type, session, project} : Props) => {
 
   const router = useRouter();
 
-  //console.log(session?.user.avatarUrl)
+  console.log(session?.user, 'asas')
 
 const [loading, setLoading] = useState<boolean>(false);
 
@@ -44,8 +44,10 @@ const [form, setForm] = useState({
         await createNewProject(form,
           session?.user?.name,
           session?.user?.image,
-          session?.user?.email, 
-          token);
+          session?.user?.email,
+          session?.user?.id, 
+          token
+          );
 
         router.push('/');
 

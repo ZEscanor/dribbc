@@ -1,29 +1,26 @@
-import { ProjectInterface, UserProfile } from '@/common.types'
-import Image from 'next/image'
+import { ProjectInterface, UserProfile } from '@/common.types';
+import Image from 'next/image';
 
-import Link from 'next/link'
+import Link from 'next/link';
 import Button from "./Button";
 import ProjectCard from './ProjectCard';
 
+
 type Props = {
-   creatorName: string,
-    creatorImage: string,
-    creatorEmail: string,
-    relatedProjects: {node: ProjectInterface}[]
+   user: UserProfile
 }
 //ProfilePage is a component that displays the profile of a user
 const ProfilePage = ({ 
-    creatorName,
-    creatorImage,
-    creatorEmail,
-    relatedProjects
+    user
  }: Props) => (
     <section className='flexCenter flex-col max-w-10xl w-full mx-auto paddings'>
         <section className="flexBetween max-lg:flex-col gap-10 w-full">
             <div className='flex items-start flex-col w-full'>
-                <Image src={creatorImage} width={100} height={100} className="rounded-full" alt="user image" />
-                <p className="text-4xl font-bold mt-10">{creatorName}</p>
-                <p className="md:text-5xl text-3xl font-extrabold md:mt-10 mt-5 max-w-lg">I’m Software Engineer 👋</p>
+                <Image src={user?.avatarUrl} width={100} height={100} className="rounded-full" alt="user image" />
+                <p className="text-4xl font-bold mt-10">{user?.name}</p>
+                <p className="md:text-5xl text-3xl font-extrabold md:mt-10 mt-5 max-w-lg">
+                    {user?.description || "I’m Software Engineer 👋"}
+                </p>
                 
                 <div className="flex mt-8 gap-5 w-full flex-wrap">
                     <Button 
@@ -32,17 +29,17 @@ const ProfilePage = ({
                         bgColor="bg-light-white-400 !w-max" 
                         textColor="text-black-100" 
                     />
-                    <Link href={`mailto:${creatorEmail}`}>
+                    <Link href={`mailto:${user?.email}`}>
                         <Button title="Hire Me" leftIcon="/email.svg" />
                     </Link>
                 </div>
             </div>
 
-            { relatedProjects.length
+            { user?.projects.edges.length
              > 0 ? (
                 <Image
                     src={
-                        relatedProjects[0].node.creatorImage
+                        user?.projects?.edges[0]?.node?.image
                     }
                     alt="project image"
                     width={739}
@@ -65,8 +62,7 @@ const ProfilePage = ({
            
            <div className="profile_projects">
                 {
-                    relatedProjects
-                .map(
+                   user?.projects.edges?.map(
                     ({ node }: { node: ProjectInterface }) => (
                         <ProjectCard
                             key={`${node?.id}`}

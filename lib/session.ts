@@ -68,7 +68,7 @@ export const authOptions: NextAuthOptions = {
             ){
            try {
          const userExists = await getUser(user?.email as string) as {user?: UserProfile}
-            if (userExists?.user) {
+            if (!userExists?.user) {
                 await createUser(user.name as string, 
                     user.email as string, 
                     user.image as string)

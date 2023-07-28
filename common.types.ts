@@ -20,16 +20,22 @@ export interface ProjectInterface {
     createdBy: string;
     creatorImage: string;
     creatorEmail: string;
+    creator: {
+      name: string;
+      email: string;
+      avatarUrl: string;
+      id: string;
+    };
 }
 
 export interface UserProfile {
-    id?: string;
+    id: string;
     name: string;
     email: string;
     description: string | null;
     avatarUrl: string;
     githubUrl: string | null;
-    linkedInUrl: string | null;
+    linkedinUrl: string | null;
     projects: {
       edges: { node: ProjectInterface }[];
       pageInfo: {
@@ -58,4 +64,13 @@ export interface ProjectForm {
   liveSiteUrl: string;
   githubUrl: string;
   category?: string;
+}
+
+
+export interface UserForm {
+  name: string;
+  description: string;
+  avatarUrl: string;
+  githubUrl: string;
+  linkedinUrl: string;
 }
