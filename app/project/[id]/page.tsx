@@ -21,8 +21,8 @@ const  Project = async ({params: { id }} : { params: { id: string } }
        </p>
     }
     const projectDetails = result?.project;
-    const renderLink = () => `/profile/${projectDetails?.createdBy}`
-    //console.log(projectDetails.createdBy, 'projectDetails')
+    const renderLink = () => `/profile/${projectDetails?.creator?.id}`
+    //console.log(projectDetails, 'projectDetails')
     // this is a modal component , a modal is a popup that appears on top of the page
   return (
     <Modal>
@@ -30,7 +30,7 @@ const  Project = async ({params: { id }} : { params: { id: string } }
             <div className='flex-1 flex items-start gap-5 w-full max-xs:flex-col'>
               <Link href={renderLink()}>
               <Image 
-               src={projectDetails?.creatorImage}
+               src={projectDetails?.creator?.avatarUrl}
                 alt="Creator Image"
                 width= {51}
                 height={51}
@@ -44,7 +44,7 @@ const  Project = async ({params: { id }} : { params: { id: string } }
             </p>
             <div className='user-info'>
             <    Link href={renderLink()}>
-                                {projectDetails?.createdBy}
+                                {projectDetails?.creator?.name}
                             </Link>
                             <Image src="/dot.svg" width={4} height={4} alt="dot" />
                             <Link href={`/?category=${projectDetails.category}`} className="text-primary-purple font-semibold"> 
@@ -93,7 +93,7 @@ const  Project = async ({params: { id }} : { params: { id: string } }
                 <span className="w-full h-0.5 bg-light-white-200" />
                 <Link href={renderLink()} className="min-w-[82px] h-[82px]">
                     <Image
-                        src={projectDetails?.creatorImage}
+                        src={projectDetails?.creator?.avatarUrl}
                         className="rounded-full"
                         width={82}
                         height={82}
@@ -103,7 +103,7 @@ const  Project = async ({params: { id }} : { params: { id: string } }
                 <span className="w-full h-0.5 bg-light-white-200" />
             </section>
 
-           < RelatedProjects userId={projectDetails?.creatorEmail} projectId={projectDetails?.id} />
+           < RelatedProjects userId={projectDetails?.creator?.id} projectId={projectDetails?.id} />
 
             
         

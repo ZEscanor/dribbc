@@ -11,10 +11,11 @@ type Props = {
   createdBy: string,
   creatorImage: string,
   creatorEmail: string,
+  creator? : string
 }
 
 
-const ProjectCard = ({ id, image, title, createdBy, creatorEmail, creatorImage }: Props) => {
+const ProjectCard = ({ id, image, title, createdBy, creatorEmail, creatorImage, creator }: Props) => {
   const [randomLikes, setRandomLikes] = useState<number>(0);
   const [randomViews, setRandomViews] = useState<string>("");
 
@@ -45,7 +46,7 @@ const ProjectCard = ({ id, image, title, createdBy, creatorEmail, creatorImage }
          </div>
       </Link>
       <div className='flexBetween w-full px-2 mt-3 font-semibold text-sm'>
-       <Link href={`/profile/${createdBy}`}>
+       <Link href={`/profile/${creator}`}>
           <div className='flexCenter gap-2'>
             <Image 
             src={creatorImage}

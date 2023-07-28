@@ -37,9 +37,14 @@ const Footer = () => {
       flex flex-col gap-12
       w-full
       '>
-        <div className='flex items-start flex-col'>
+        <div className='flex  items-center flex-col 
+        
+        
+        '>
             <Image src='/logo-purple.svg' width={115} height={38} alt='Flex' />
-            <p className='text-start text-sm font-normal mt-5 max-w-xs'>Flex is a platform for showcasing your work and connecting with other creatives.</p>
+            <p className='text-start text-sm font-normal mt-5 max-w-xs
+            '>
+              Flex is a platform for showcasing your work and connecting with other creatives.</p>
         </div>
 
         <div className='flex flex-wrap gap-12'>
@@ -65,16 +70,12 @@ const Footer = () => {
           links={footerLinks[6].links}/>
 
       </div>
-      Footer
       </div>
       <div className='flexBetween footer_copyright'>
         <p>
           © 2021 Flex. All rights reserved.
         </p>
         <p className='text-gray'>
-        <span className='text-black font-semibold'> 
- 10,000+ projects
-        </span>
         </p>
       </div>
       </footer>
