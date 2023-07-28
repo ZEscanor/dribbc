@@ -31,6 +31,17 @@ type Props = {
 const Home = async ({searchParams: {category, endcursor}}: Props) => {
 
   
+
+     if(category === undefined || category === null){
+        return (
+            <section className="flexStart flex-col paddings">
+                <Categories/>
+            </section>
+        )
+     }
+
+
+
         let data = await fetchAllProjects() as ProjectSearch;
 
        
