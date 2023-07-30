@@ -164,3 +164,49 @@ body {
 .profile_projects {
   @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-5;
 }
+
+/* Hiring Page */
+.hiring_container{
+  @apply flex flex-col justify-center items-center text-3xl  leading-10 mt-10;
+}
+
+.hiring_topDiv{
+  @apply    
+  w-full
+  flex
+  flex-col
+  justify-center
+  items-center
+}
+
+.hiring_div1{
+  @apply mt-10
+  flex
+  
+}
+.hiring_div2{
+ @apply text-red-500
+  text-4xl
+  text-center
+  mb-[30px]
+}
+
+.buttons {
+  @apply text-center
+  text-primary-purple
+  bg-white
+  border-2
+  border-primary-purple
+  rounded-xl
+  px-4
+  py-3
+  mt-4
+  mb-10
+  font-medium
+  hover:bg-primary-purple
+  hover:text-white
+  transition
+  duration-200
+  ease-in-out
+  focus:outline-none
+}
