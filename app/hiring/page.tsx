@@ -7,6 +7,9 @@ const Hiring = () => {
     <div
     className='
        hiring_container
+        w-[400px]
+        ss:w-full
+        
 
         '>
         
@@ -44,12 +47,13 @@ const Hiring = () => {
                 >
                     <h1
                     className='
-                    text-6xl
+                    text-2xl
+                    sm:text-6xl
                     text-center
                     font-bold
-                    
                     mt-[70px]
                     mb-10
+                    
     
                     '
 
@@ -57,9 +61,11 @@ const Hiring = () => {
                     > Hire the world's top designers </h1>
                     <p
                     className='
+                    text-xl
+                    sm:text-2xl
                     text-center
                     mb-[20px]
-                    
+                  
                     '
 
                     
@@ -75,7 +81,8 @@ const Hiring = () => {
                         Learn More
 
                     </button>
-                    <p>**No Risk Cancel Anytime</p>
+                    <p className=' text-xl
+                    sm:text-2xl'>**No Risk Cancel Anytime</p>
                 </div>
 
             </div>
@@ -85,7 +92,11 @@ const Hiring = () => {
             mt-10
             mb-[75px]
             '>
-           <h1> Helped some of the world's top companies</h1>
+           <h1 className='text-2xl
+                    sm:text-6xl
+                    font-bold
+                    bg-red-200
+                    '> Helped some of the world's top companies</h1>
                 <div className='
                 
                 grid
@@ -99,7 +110,7 @@ const Hiring = () => {
               <Image src='/adobe-logo.png' alt='adobe' width={100} height={100} />
                 <Image src='/airbnb-logo.png' alt='airbnb' width={100} height={100} />
                 <Image src='/google-logo.jpg' alt='google' width={100} height={100} />
-                <Image src='/logo-instagram.png' alt='instagram' width={100} height={100} />
+                <Image src='/Logo-Instagram.png' alt='instagram' width={100} height={100} />
                 <Image src='/lyft-logo.png' alt='lyft' width={100} height={100} />
                 <Image src='/microsoft-logo.png' alt='microsoft' width={100} height={100} />       
         </div>
@@ -108,7 +119,6 @@ const Hiring = () => {
         </div>
 
         <div className='
-      
         w-full
         mb-[75px]
     
@@ -116,9 +126,10 @@ const Hiring = () => {
 
         '>   
             <div className='
-           
             grid
-            grid-cols-2
+            sm:grid-cols-1
+            
+            md:grid-cols-2
             justify-center
             items-center
             '>
@@ -143,8 +154,16 @@ const Hiring = () => {
                     mb-10
                      
                     '>Job Board</h1>
-                    <p>The #1 job board for top design talent</p>
-                    <p>Our job board postings receive an average of 1.1k targeted clicks per month and are viewed by over 1 million top designers globally. With a proven track record assisting over 60,000 companies, you’ll spend less time sorting through unqualified candidates and more time hiring amazing talent.</p>
+                    <p className='
+                    text-6xl
+                    font-bold
+                    mb-10
+                    '>The #1 job board for top design talent</p>
+                    <p  className='
+                    text-lg
+                    mb-10
+                 
+                    '>Our job board postings receive an average of 1.1k targeted clicks per month and are viewed by over 1 million top designers globally. With a proven track record assisting over 60,000 companies, you’ll spend less time sorting through unqualified candidates and more time hiring amazing talent.</p>
                     <button className='
                     buttons
                     
@@ -186,7 +205,8 @@ const Hiring = () => {
             <div  className='
            
            grid
-           grid-cols-2
+           sm:grid-cols-1
+           md:grid-cols-2
            justify-center
            items-center
            '> 
@@ -223,8 +243,15 @@ const Hiring = () => {
                     mb-10'
                     
                     >Designer Search</h1>
-                    <p>Hire faster & smarter with Designer Search</p>
-                    <p>Easily find quality freelancers and full-time creatives using our powerful search engine with filters for specialty, location, experience level, and more. Search for available talent in the largest professional creative community with just a few clicks.</p>
+                    <p className='
+                    text-6xl
+                    font-bold
+                    mb-10
+                    '>Hire faster & smarter with Designer Search</p>
+                 <p className='
+                    text-lg
+                    
+                    '>Easily find quality freelancers and full-time creatives using our powerful search engine with filters for specialty, location, experience level, and more. Search for available talent in the largest professional creative community with just a few clicks.</p>
                     <button className='
                     buttons
                     '>Get Started</button>
@@ -239,7 +266,8 @@ const Hiring = () => {
             
             w-full
             grid
-            grid-cols-2
+            lg:grid-cols-2
+            mb-[75px]
             
             '>
                 
@@ -254,6 +282,8 @@ const Hiring = () => {
                 flex-col
                 justify-center
                 items-center
+                hidden
+                lg:block
 
                 
                 '>
@@ -267,6 +297,8 @@ const Hiring = () => {
                 items-center
                 align-center
                 text-3xl
+             
+                
              '>
              <h1 className='
                 text-center
@@ -281,6 +313,7 @@ const Hiring = () => {
                 <div  className='
                 flex
                 flex-col
+               
                 justify-center
                 items-center
                 align-center
@@ -300,7 +333,9 @@ const Hiring = () => {
                     '> 
                         World-Class Talent
                     </p>
-                    <p>
+                    <p className='
+                    text-2xl
+                    '>
                     From graphic design to UX/UI, our community is home to the world’s leading designers and creative agencies.
                     </p>
                 </div>
@@ -326,7 +361,9 @@ const Hiring = () => {
                     '>
                         No Placement Fees
                     </p>
-                    <p>
+                    <p className='
+                    text-2xl
+                    '>
                     We make the hiring process as seamless and cost-effective as possible, so you can focus on building your business.
                     </p>
                 </div>
@@ -351,7 +388,9 @@ const Hiring = () => {
                         Global Reach
                     </p>
 
-                    <p>
+                    <p className='
+                    text-2xl
+                    '>
                     With a network of designers spanning over 170 countries, we make it easy to find world-class talent, wherever you are in the world.
                     </p>
                 </div>
@@ -364,20 +403,21 @@ const Hiring = () => {
                w-full
                 flex
                 flex-col
-                justify-center
                 items-center
                 align-center
                 text-3xl
-                leading-10
-                mt-[75px]
-                mb-[75px]
-                h-[500px]
+                mb-[20px]
+                h-[700px]
+                sm:h-[500px]
 
 
                '>
                 <h1 className='
-                  text-[90px]
+                  text-4xl
+                  md: text-6xl
                     mb-[80px]
+                    font-bold
+                    mt-[30px]
                 '>
                     Find your next great designer today
                 </h1>
@@ -390,14 +430,8 @@ const Hiring = () => {
                 buttons
 
                 '>
-                    Get Started
+                   Let's Go!
                 </button>
-                <p className='
-                text-sm
-                text-gray-500
-                '>
-                    **No Risk Cancel Anytime
-                </p>
                 </div> 
     
     </div>
