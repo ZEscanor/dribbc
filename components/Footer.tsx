@@ -12,7 +12,10 @@ type ColumnProps = {
 
 
 const FooterColumn = ({title, links} : ColumnProps) => (
-  <div className='footer_column'>
+  <div className='footer_column
+  
+  
+  '>
     <h4 className='font-semibold'>
       {title}
     </h4>
@@ -31,7 +34,9 @@ const FooterColumn = ({title, links} : ColumnProps) => (
 
 const Footer = () => {
   return (
-    <footer className='flexStart footer'>
+    <footer className='flexStart footer
+  ss:w-full
+    '>
     
       <div  className='
       flex flex-col gap-12
